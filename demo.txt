@@ -1,0 +1,2 @@
+to install react hook form - npm i react-hook-form react react-router-dom axios
+mongodb+srv://rubans08:rubanfirst@cluster0.uyjrjyi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
