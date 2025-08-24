@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import Property from '../models/property.js';
+=======
+// controllers/propertyController.js
+import Property from '../models/propertyModel.js';
+>>>>>>> 634287689d7311ee38804b027aabfbdecdbdd3af
 
 export const getAllProperties = async (req, res) => {
     try {
@@ -8,6 +13,7 @@ export const getAllProperties = async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch properties' });
     }
 };
+<<<<<<< HEAD
 
 export const getPropertyById = async (req, res) => {
     try {
@@ -20,3 +26,5 @@ export const getPropertyById = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+=======
+>>>>>>> 634287689d7311ee38804b027aabfbdecdbdd3af
