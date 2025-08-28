@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './component/Navbar';
 import Header from './component/Header';
-import Seller from './component/seller';
+import Seller from './component/Seller';
 import ListingPage from './component/Listingpage';
 import Login from './component/Login';
 import View from './component/View';
