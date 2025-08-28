@@ -1,6 +1,6 @@
 import React from 'react';
 import bg from '../assets/bg.png';
-import Featuredproperty from './Featuredproperty';
+import Featuredproperty from './FeaturedProperty';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
