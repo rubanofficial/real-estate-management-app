@@ -1,15 +1,13 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import FeaturedProperty from "./components/FeaturedProperty";
-import Seller from "./components/Seller";
-import ListingPage from "./components/ListingPage";
-import Login from "./components/Login";
-import View from "./components/View";
-
-const About = () => <div className="p-8">About Page</div>;
+import React from 'react';
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './component/Navbar';
+import Header from './component/Header';
+import Seller from './component/seller';
+import ListingPage from './component/Listingpage';
+import Login from './component/Login';
+import View from './component/View';
+const About = () => <div className="p-8"></div>;
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);

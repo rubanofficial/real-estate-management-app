@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Signup from './signup';
+import Signup from './Signup';
 import axios from 'axios';
 
 const Login = ({ onClose }) => {

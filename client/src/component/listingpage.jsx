@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ListingCard from "./listingcard";
+import ListingCard from "./Listingcard";
 
 const ListingPage = () => {
     const [listings, setListings] = useState([]);
