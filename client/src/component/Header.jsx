@@ -11,33 +11,42 @@ const Header = () => {
     };
 
     return (
-        <div className="bg-lime-50 mx-4 my-4 rounded-lg shadow-lg shadow-black/50 mt-20">
-            <section className="flex flex-col md:flex-row items-center justify-between px-6 py-10 ">
+        <div className="bg-white mx-auto my-8 p-4 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-[1.005] max-w-7xl">
+            <section className="flex flex-col lg:flex-row items-center justify-between p-8 md:p-12">
                 {/* Left Content */}
-                <div className="md:w-1/2 text-center md:text-left space-y-4 ">
-                    <p className="text-lg text-BLACK-500">Welcome to Livity</p>
-                    <h1 className="text-7xl font-bold text-BLACK-800">
-                        Discover Exceptional <br /> Homes With Livity
+                <div className="lg:w-1/2 text-center lg:text-left space-y-6">
+                    <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest">
+                        Welcome to Livity
+                    </p>
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Discover Exceptional <br className="hidden md:inline" /> Homes With Livity
                     </h1>
-                    <p className="text-gray-600">
+                    <p className="text-base text-gray-600 max-w-md mx-auto lg:mx-0">
                         Find a place you’ll love to live — where comfort meets convenience.
                     </p>
 
                     {/* Button Group */}
-                    <div className="flex items-center justify-center md:justify-start space-x-4 mt-4">
-                        <div className="text-center bg-gray-100 px-4 py-2 rounded-md text-sm">
-                            <p className="font-bold text-black">10% OFF</p>
-                            <p className="text-gray-500">On All Properties</p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
+                        <div className="text-center bg-green-50 px-5 py-3 rounded-lg text-sm transition-all duration-300 transform hover:scale-105">
+                            <p className="font-bold text-green-700">10% OFF</p>
+                            <p className="text-green-500">On All Properties</p>
                         </div>
-                        <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md transition-all" onClick={handleViewDetails}>
+                        <button
+                            className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                            onClick={handleViewDetails}
+                        >
                             Buy now
                         </button>
                     </div>
                 </div>
 
                 {/* Right Image */}
-                <div className="md:w-1/2 mt-8 md:mt-0">
-                    <img src={bg} alt="Apartment Building" className="rounded-md shadow-md w-full h-auto" />
+                <div className="lg:w-1/2 mt-12 lg:mt-0 lg:ml-12">
+                    <img
+                        src={bg}
+                        alt="Apartment Building"
+                        className="rounded-3xl shadow-xl w-full h-auto transition-all duration-300 transform hover:scale-105"
+                    />
                 </div>
             </section>
             <Featuredproperty />
