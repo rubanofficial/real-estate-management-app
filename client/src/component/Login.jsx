@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import Signup from './Signup';
 import axios from 'axios';
-import logo from '../assets/image.png'; // Assuming you have saved your logo here
+import logo from '../assets/image.png';
+import { useAuth } from './context/AuthContext.jsx';
 
 const Login = ({ onClose }) => {
     const [showSignup, setShowSignup] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
+    const { login } = useAuth(); // Use the login function from context
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setErrorMsg('');
 
         try {
             const res = await axios.post('http://localhost:3001/api/auth/login', {
@@ -18,11 +21,14 @@ const Login = ({ onClose }) => {
                 password,
             });
 
-            // In a real app, you would save the JWT token here
-            console.log("Login successful! Token:", res.data.token);
-            alert(res.data.message);
+            // On successful login, save the token and user data to context
+            const { token, user, message } = res.data;
+            login(token, user);
+
+            console.log(message);
             onClose();
         } catch (error) {
+            console.error("Login failed:", error);
             if (error.response && error.response.data) {
                 setErrorMsg(error.response.data.message);
             } else {
@@ -62,7 +68,7 @@ const Login = ({ onClose }) => {
                 </div>
 
                 {showSignup ? (
-                    <Signup setShowSignup={setShowSignup} />
+                    <Signup setShowSignup={setShowSignup} onClose={onClose} />
                 ) : (
                     <form onSubmit={handleLogin} className="space-y-6">
                         <h2 className="text-3xl font-extrabold text-gray-800 text-center">Welcome Back</h2>
