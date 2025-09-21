@@ -11,24 +11,24 @@ const Navbar = ({ onLoginClick }) => {
     const navLinks = (
         <>
             <li>
-                <Link to="/" className="text-white font-medium rounded-full px-4 py-2 hover:bg-slate-700 transition">
+                <Link to="/" className="text-white font-medium px-4 py-2 hover:bg-slate-700 rounded-lg transition">
                     Home
                 </Link>
             </li>
             {user?.role === 'agent' && (
                 <li>
-                    <Link to="/seller" className="text-white font-medium rounded-full px-4 py-2 hover:bg-slate-700 transition">
+                    <Link to="/seller" className="text-white font-medium px-4 py-2 hover:bg-slate-700 rounded-lg transition">
                         Seller
                     </Link>
                 </li>
             )}
             <li>
-                <Link to="/properties" className="text-white font-medium rounded-full px-4 py-2 hover:bg-slate-700 transition">
+                <Link to="/properties" className="text-white font-medium px-4 py-2 hover:bg-slate-700 rounded-lg transition">
                     Properties
                 </Link>
             </li>
             <li>
-                <Link to="/about" className="text-white font-medium rounded-full px-4 py-2 hover:bg-slate-700 transition">
+                <Link to="/about" className="text-white font-medium px-4 py-2 hover:bg-slate-700 rounded-lg transition">
                     About Us
                 </Link>
             </li>
@@ -38,6 +38,7 @@ const Navbar = ({ onLoginClick }) => {
     return (
         <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] z-50 bg-slate-800 shadow-lg rounded-full px-6 py-2">
             <div className="flex items-center justify-between">
+                {/* Logo */}
                 <Link to="/" className="flex items-center space-x-2 py-2">
                     <img src={logo} alt="Livity Logo" className="h-8" />
                 </Link>
@@ -73,30 +74,34 @@ const Navbar = ({ onLoginClick }) => {
                             <Bars3Icon className="h-8 w-8" />
                         )}
                     </button>
-                    {user ? (
-                        <button
-                            onClick={logout}
-                            className="bg-red-500 text-white font-medium rounded-full px-4 py-1 hover:bg-red-600 transition text-sm"
-                        >
-                            Logout
-                        </button>
-                    ) : (
-                        <button
-                            onClick={onLoginClick}
-                            className="bg-green-500 text-white font-medium rounded-full px-4 py-1 hover:bg-green-600 transition text-sm"
-                        >
-                            Login
-                        </button>
-                    )}
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu (Floating below navbar) */}
             {isMenuOpen && (
-                <div className="md:hidden mt-4 bg-slate-700 rounded-3xl p-4 transition-all duration-300">
-                    <ul className="flex flex-col space-y-2">
-                        {navLinks}
-                    </ul>
+                <div className="absolute top-full left-0 w-full mt-2 md:hidden">
+                    <div className="bg-slate-700 rounded-2xl shadow-lg mx-2 p-4">
+                        <ul className="flex flex-col space-y-2">
+                            {navLinks}
+                            <li>
+                                {user ? (
+                                    <button
+                                        onClick={logout}
+                                        className="w-full bg-red-500 text-white font-medium rounded-lg px-4 py-2 hover:bg-red-600 transition"
+                                    >
+                                        Logout
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={onLoginClick}
+                                        className="w-full bg-green-500 text-white font-medium rounded-lg px-4 py-2 hover:bg-green-600 transition"
+                                    >
+                                        Login
+                                    </button>
+                                )}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             )}
         </nav>
