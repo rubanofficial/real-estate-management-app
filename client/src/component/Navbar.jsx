@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import logo from '../assets/image.png';
-
+import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid';
 
 const Navbar = ({ onLoginClick }) => {
     const { user, logout } = useAuth();
@@ -93,7 +93,7 @@ const Navbar = ({ onLoginClick }) => {
 
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <div className="md:hidden mt-4 bg-slate-700 rounded-lg p-4 transition-all duration-300">
+                <div className="md:hidden mt-4 bg-slate-700 rounded-3xl p-4 transition-all duration-300">
                     <ul className="flex flex-col space-y-2">
                         {navLinks}
                     </ul>
