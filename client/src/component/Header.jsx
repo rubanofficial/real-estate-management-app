@@ -14,8 +14,8 @@ const Header = () => {
         // The container class makes this a responsive, centered container
         // mx-auto ensures it's horizontally centered.
         // The padding classes (px-4, py-8) manage the internal spacing
-        <div className="container mx-auto px-4 py-8 max-w-7xl">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-[1.005]">
+        <div className="container mx-auto my-12 px-4" >
+            < div className="bg-white rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-[1.005]" >
                 <section className="flex flex-col lg:flex-row items-center justify-between p-8 md:p-12">
                     {/* Left Content */}
                     <div className="lg:w-1/2 text-center lg:text-left space-y-6">
@@ -54,8 +54,8 @@ const Header = () => {
                     </div>
                 </section>
                 <Featuredproperty />
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
