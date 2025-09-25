@@ -2,6 +2,7 @@ import React from 'react';
 import bg from '../assets/bg.png';
 import Featuredproperty from './FeaturedProperty';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Header = () => {
     const navigate = useNavigate();
@@ -11,14 +12,23 @@ const Header = () => {
     };
 
     return (
-        // The container class makes this a responsive, centered container
-        // mx-auto ensures it's horizontally centered.
-        // The padding classes (px-4, py-8) manage the internal spacing
-        <div className="container mx-auto my-12 px-4" >
-            < div className="bg-white rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-[1.005]" >
+        // The container class makes this a responsive, centered container.
+        // It now has more top margin (mt-20) to push it down from the fixed navbar.
+        <div className="container mx-auto mt-20 px-4 py-8 max-w-7xl">
+            <motion.div
+                className="bg-white rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-[1.005]"
+                initial={{ opacity: 0, y: 50 }} // Initial state: invisible and slightly down
+                animate={{ opacity: 1, y: 0 }} // Animate to final state: visible and in place
+                transition={{ duration: 0.8, ease: "easeOut" }} // Define the animation speed
+            >
                 <section className="flex flex-col lg:flex-row items-center justify-between p-8 md:p-12">
                     {/* Left Content */}
-                    <div className="lg:w-1/2 text-center lg:text-left space-y-6">
+                    <motion.div
+                        className="lg:w-1/2 text-center lg:text-left space-y-6"
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                    >
                         <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest">
                             Welcome to Livity
                         </p>
@@ -42,20 +52,25 @@ const Header = () => {
                                 Buy now
                             </button>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Right Image */}
-                    <div className="lg:w-1/2 mt-12 lg:mt-0 lg:ml-12">
+                    <motion.div
+                        className="lg:w-1/2 mt-12 lg:mt-0 lg:ml-12"
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                    >
                         <img
                             src={bg}
                             alt="Apartment Building"
                             className="rounded-3xl shadow-xl w-full h-auto transition-all duration-300 transform hover:scale-105"
                         />
-                    </div>
+                    </motion.div>
                 </section>
                 <Featuredproperty />
-            </div >
-        </div >
+            </motion.div>
+        </div>
     );
 };
 
