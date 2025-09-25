@@ -2,10 +2,8 @@ import express from 'express';
 import multer from 'multer';
 import { storage } from '../utils/cloudinary.js';
 import Property from '../models/property.js';
-<<<<<<< HEAD
 import { getPropertyById } from '../controllers/propertyController.js';
-=======
->>>>>>> 634287689d7311ee38804b027aabfbdecdbdd3af
+
 
 const upload = multer({ storage });
 const router = express.Router();
@@ -63,10 +61,7 @@ router.get('/properties', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch properties' });
     }
 });
-<<<<<<< HEAD
 router.get('/:id', getPropertyById);
-=======
 
->>>>>>> 634287689d7311ee38804b027aabfbdecdbdd3af
 
 export default router;

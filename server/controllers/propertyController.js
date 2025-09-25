@@ -1,7 +1,6 @@
 
 import Property from '../models/property.js';
 // controllers/propertyController.js
-import Property from '../models/propertyModel.js';
 export const getAllProperties = async (req, res) => {
     try {
         const properties = await Property.find();
